@@ -1,11 +1,12 @@
 <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <a class="navbar-brand" href="#">Student Project Tracker</a>
+        <div class="navbar-header">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="#">Student Project Tracker</a>
+          </div>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
@@ -17,34 +18,41 @@
         <a class="nav-link" href="/home">Upload</a>
       </li>
     </ul>
-    <!--<form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>-->
-    <ul class="navbar-nav ml-auto">
+
+    <ul class="navbar-nav mr-auto navbar-right">
       @if (Auth::guest())
       <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
       <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Register</a></li>
       @else
-      <li class="dropdown">
-        <a class="btn btn-secondary dropdown-toggle" href="#"  id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              {{ Auth::user()->name }} <span class="caret"></span>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#"  id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{ Auth::user()->name }} 
         </a>
 
-        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-          <li>
-            <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+        <div class="dropdown-menu" style="border-width:1px; background-color:rgba(255,255,255,0); box-shadow:none;" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" style="text-align:center;" href="{{ route('logout') }}" onclick="event.preventDefault();
               document.getElementById('logout-form').submit();">
                                             Logout
             </a>
 
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            <form class="dropdown-item" id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
               {{ csrf_field() }}
             </form>
-          </li>
-        </ul>
+         </div>   
       </li>
       @endif
     </ul>
+
+    <!--<form class="navbar-form form-inline">
+      <input class="form-control" type="text" placeholder="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>-->
+  
   </div>
 </nav>
+
+<style>
+.nav-link{
+  text-align:center;
+}
+</style>
