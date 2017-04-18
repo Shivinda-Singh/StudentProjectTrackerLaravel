@@ -80,6 +80,7 @@
             <div class="content">
                 <div class="title m-b-md">
                     Student Project Tracker
+                    <a class="btn btn-default" href="/prjects">View Projects</a>
                 </div>
             </div>
         </div>

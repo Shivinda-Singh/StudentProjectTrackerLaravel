@@ -12,7 +12,7 @@
 */
 use App\Projects; 
 
-Route::get('/', function(){return view('about');});
+Route::get('/', 'ProjectsController@index');
 Route::get('/projects', 'ProjectsController@index');
 Route::get('/projects/create', 'ProjectsController@create');
 Route::post('/projects', 'ProjectsController@store');
