@@ -5,10 +5,11 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class Admin extends Authenticatable
 {
     use Notifiable;
 
+    protected $guard = 'admin';
     /**
      * The attributes that are mass assignable.
      *
@@ -27,13 +28,6 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function projects(){
-        return $this->hasMany(Project::class);
-    }
+    
 
-    public function upload(Project $project){
-        $this->projects()->save($project);
-
-
-    }
 }

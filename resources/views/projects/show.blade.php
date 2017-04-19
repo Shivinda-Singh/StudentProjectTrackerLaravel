@@ -5,12 +5,21 @@
     <div class="col-sm-8 blog-main">
         <div class="blog-post">
             <h2 class="blog-post-title">{{$project->name}}</h2>
-            <p class="blog-post-meta">{{$project->created_at}} by <a href="#">user_name</a></p>
+            <p class="blog-post-meta">{{$project->created_at}} by <a href="#">{{ $project->user->name }}</a></p>
             <p>{{$project->description}}</p>
             <p>{{$project->course_code}}</p>
-            <p>{{$project->year}}</p>
+            <p>{{$project->year_completed}}</p>
             <p>{{$project->github}}</p>
-            <p>{{$project->collaborators}}</p>
+            <!--<p>{{$project->collaborators}}</p>-->
+            @if(count($project->tags))
+                <ul>
+                    @foreach ($project->tags as $tag)
+                        <li>
+                            <a href="/projects/tags/{{$tag->name}}">{{$tag->name}}</a>
+                        </li>
+                    @endforeach
+                </ul>
+            @endif
         </div>
         <!-- /.blog-post -->
         <div class="comments">
@@ -40,5 +49,7 @@
         </div>
         
     </div>
+     @include('layouts.sidebar')
 
 @endsection
+

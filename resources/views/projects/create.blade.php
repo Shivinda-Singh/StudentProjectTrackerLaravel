@@ -26,8 +26,8 @@
                 <input required type="text" class="form-control" id="course_code" name="course_code" >
             </div>
             <div class="form-group">
-                <label for="year">Year</label>
-                <input required type="number" class="form-control" id="year" name="year">
+                <label for="year_completed">Year Completed</label>
+                <input required type="number" class="form-control" id="year_completed" name="year_completed">
             </div>
             <div class="form-group">
                 <label for="github">Github</label>

@@ -1,56 +1,49 @@
-<html lang="en">
-
+<!DOCTYPE html>
+<html lang="{{ config('app.locale') }}">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <link rel="icon" href="../../favicon.ico">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Student Project Tacker</title>
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="/bower/bootstrap/dist/css/bootstrap.min.css">
+    <!--<title>{{ config('app.name', 'Laravel') }}</title>-->
+    <title>Student Project Tracker</title>
 
-  <!-- Custom styles for this template -->
-  <link href="/css/app.css" rel="stylesheet">
-  <!-- Scripts -->
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- Scripts -->
     <script>
         window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
 </head>
-
-
 <body>
+    <div id="app">
+        @include('layouts.nav')
+        @if($flash = session('message'))
+        <div id="flash-message" class="alert alert-success" role="alert">
+            {{$flash}}
+        </div>
+        @endif
+        <div class="container">
 
-  @include('layouts.nav')
+        <div class="row">
+          @yield('content') 
+        
+        </div>
+        <!-- /.row -->
 
-  
+      </div>
+      <!-- /.container -->
 
-  <div class="container">
-
-    <div class="row">
-      @yield('content') 
-      
+      @include('layouts.footer')
     </div>
-    <!-- /.row -->
 
-  </div>
-  <!-- /.container -->
-
-  @include('layouts.footer')
-
-
-  <!-- Bootstrap core JavaScript
-    ================================================== -->
-  <!-- Placed at the end of the document so the pages load faster -->
-  <script src="/bower/jquery/dist/jquery.slim.min.js"></script>
-  <script src="/bower/tether/dist/js/tether.min.js"></script>
-  <script src="/bower/bootstrap/dist/js/bootstrap.min.js"></script>
-
-
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
-
 </html>
