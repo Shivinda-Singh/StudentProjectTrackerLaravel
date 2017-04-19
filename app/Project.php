@@ -41,7 +41,7 @@ class Project extends Model
         ->toArray();
     }
 
-    public function students(){
-        return $this->belongsToMany(Student::class);
+    public function tags(){
+        return $this->belongsToMany(Tag::class);
     }
 }

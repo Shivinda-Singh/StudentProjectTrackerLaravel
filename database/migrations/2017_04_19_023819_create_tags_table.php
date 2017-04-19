@@ -13,17 +13,17 @@ class CreateStudentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('students', function (Blueprint $table) {
+        Schema::create('tags', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->unique();
             $table->timestamps();
         });
 
-        Schema::create('project_student', function (Blueprint $table) {
+        Schema::create('project_tag', function (Blueprint $table) {
             // $table->increments('id');
             $table->integer('project_id');
-            $table->integer('student_id');
-            $table->primary(['project_id','student_id']);
+            $table->integer('tag_id');
+            $table->primary(['project_id','tag_id']);
         });
     }
 
@@ -34,7 +34,7 @@ class CreateStudentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('students');
-        Schema::dropIfExists('project_student');
+        Schema::dropIfExists('tags');
+        Schema::dropIfExists('project_tag');
     }
 }

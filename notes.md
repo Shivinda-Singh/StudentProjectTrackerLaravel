@@ -19,3 +19,15 @@ App\{Name of Model}
 
 #controllers
 php artisan make:controller ProjectController
+
+#hashing
+>>> $admin= new App\Admin
+=> App\Admin {#684}
+>>> $admin->name = 'Admin Feng'
+=> "Admin Feng"
+>>> $admin->email = 'feng@admin.com'
+=> "feng@admin.com"
+>>> $admin->password = Hash::make('password')
+=> "$2y$10$422eIZL72yHggI3h3TtwfumNP0ToNEJ5Wu0Nm/y9guCtM1ZGrGhgC"
+>>> $admin->save()
+=> true

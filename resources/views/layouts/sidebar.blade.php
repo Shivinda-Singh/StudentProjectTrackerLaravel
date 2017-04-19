@@ -1,7 +1,7 @@
 <div class="col-sm-3 offset-sm-1 blog-sidebar">
   <div class="sidebar-module sidebar-module-inset">
     <h4>About</h4>
-    <p>A directory of student projects</p>
+    <p>A directory of Student projects</p>
   </div>
   <div class="sidebar-module">
     <h4>Archives</h4>
@@ -14,11 +14,11 @@
     </ol>
   </div>
   <div class="sidebar-module">
-    <h4>Students</h4>
+    <h4>Tags</h4>
     <ol class="list-unstyled">
-      @foreach($students as $student)
+      @foreach($tags as $tag)
       <li>
-        <a href="/projects/students/{{$student}}">{{$student}}</a>
+        <a href="/projects/tags/{{$tag}}">{{$tag}}</a>
       </li>
       @endforeach
     </ol>

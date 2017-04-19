@@ -11,11 +11,11 @@
             <p>{{$project->year_completed}}</p>
             <p>{{$project->github}}</p>
             <!--<p>{{$project->collaborators}}</p>-->
-            @if(count($project->students))
+            @if(count($project->tags))
                 <ul>
-                    @foreach ($project->students as $student)
+                    @foreach ($project->tags as $tag)
                         <li>
-                            <a href="/projects/students/{{$student->name}}">{{$student->name}}</a>
+                            <a href="/projects/tags/{{$tag->name}}">{{$tag->name}}</a>
                         </li>
                     @endforeach
                 </ul>
