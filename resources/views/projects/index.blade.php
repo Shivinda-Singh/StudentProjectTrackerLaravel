@@ -1,4 +1,5 @@
-@extends('layouts.master') @section('content')
+@extends('layouts.master') 
+@section('content')
 
 <!--<ul class="list-unstyled">
         @foreach ($projects as $project)
@@ -23,6 +24,6 @@
     </nav>
 
 </div>
-@include('layouts.sidebar')
+ @include('layouts.sidebar')
 
 @endsection

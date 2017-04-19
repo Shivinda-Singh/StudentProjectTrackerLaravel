@@ -14,6 +14,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+        view()->composer('layouts.sidebar', function($view){
+            $archives = \App\Project::archives();
+            $students = \App\Student::has('projects')->pluck('name');
+            $view->with(compact('archives','students') );
+        });
     }
 
     /**
@@ -25,4 +30,6 @@ class AppServiceProvider extends ServiceProvider
     {
         //
     }
+
+
 }

@@ -15,11 +15,12 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id');
             $table->string('name');
             $table->longText('description');
             $table->string('collaborators');
             $table->string('course_code');
-            $table->integer('year');
+            $table->integer('year_completed');
             $table->string('github');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();

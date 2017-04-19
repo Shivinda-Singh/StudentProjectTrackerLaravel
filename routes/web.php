@@ -14,11 +14,12 @@ use App\Projects;
 
 Route::get('/', 'ProjectsController@index');
 Route::get('/projects', 'ProjectsController@index');
-Route::get('/projects/create', 'ProjectsController@create');
+Route::get('/projects/create', 'HomeController@index');
 Route::post('/projects', 'ProjectsController@store');
 Route::get('/projects/{project}', 'ProjectsController@show');
-
 Route::post('/projects/{project}/comments','CommentsController@store');
+Route::get('/projects/students/{student}', 'StudentsController@index');
+
 
 Auth::routes();
 

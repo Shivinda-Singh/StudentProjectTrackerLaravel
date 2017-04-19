@@ -976,6 +976,8 @@ var app = new Vue({
   el: '#app'
 });
 
+$('#flash-message').delay(500).fadeIn(250).delay(5000).fadeOut(500);
+
 /***/ }),
 /* 10 */
 /***/ (function(module, exports) {

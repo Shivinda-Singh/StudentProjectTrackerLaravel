@@ -8,6 +8,15 @@ class ProjectsController extends Controller
 {
     public function index(){
         $projects = Project::latest()->get();
+
+
+        $projects = Project::latest()
+        ->filters(request(['month','year']))
+        ->get();
+
+        
+        
+
         return view('projects.index', compact('projects'));
     }
 
@@ -21,40 +30,38 @@ class ProjectsController extends Controller
         return view('projects.show', compact('project'));
     }
 
-    public function create(){
-        return view('projects.create');
-    }
+    // public function create(){
+    //     return view('projects.create');
+    // }
 
     public function store(){
+
         //validate forms
         $this->validate(request(),[
             'name' => 'required',
             'description' => 'required',
             'collaborators' => 'required',
             'course_code' => 'required',
-            'year' => 'required',
+            'year_completed' => 'required',
             'github' => 'required'
         ]);
 
 
-        //create project
-        // $project = new Project;
-        // $project->name = request('name');
-        // $project->description = request('description');
-        // $project->collaborators = request('collaborators');
-        // $project->course_code = request('course_code');
-        // $project->year = request('year');
-        // $project->github = request('github');
-        // $project->save();
+        // Project::create([
+        //     'name'=> request('name'),
+        //     'description' => request('description'),
+        //     'collaborators'=> request('collaborators'),
+        //     'course_code'=> request('course_code'),
+        //     'year'=> request('year'),
+        //     'github'=> request('github'),
+        //     'user_id'=>auth()->id()
+        // ]);
 
-        Project::create([
-            'name'=> request('name'),
-            'description' => request('description'),
-            'collaborators'=> request('collaborators'),
-            'course_code'=> request('course_code'),
-            'year'=> request('year'),
-            'github'=> request('github')
-        ]);
+        auth()->user()->upload(
+            new Project(request(['name','description','collaborators','course_code','year_completed','github']))
+        );
+        
+        session()->flash('message', 'Your post has been published');
 
         return redirect('/');
     }
