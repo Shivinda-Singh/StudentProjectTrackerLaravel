@@ -36,10 +36,10 @@
         <!-- /.blog-post -->
         <div class="comments">
             <list-group>
-                
                     @foreach($project->comments as $comment)
                         
                         <li  class="list-group-item">
+                            <strong>{{$comment->user->name}}</strong><br>
                             <strong>{{ $comment->created_at->diffForHumans() }}: &nbsp </strong>
                             {{ $comment->body }}
                         </li>
@@ -51,7 +51,7 @@
         </div>
         <div class="card">
             <div class="card-block">
-                <form method="POST" action="/projects/{{$project->id}}/comments">
+                <form method="POST" action="/projects/{{$project->id}}">
                     {{ csrf_field() }}
                     @include('layouts.errors')
                     <div class="form-group">

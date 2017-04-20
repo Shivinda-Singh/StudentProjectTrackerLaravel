@@ -2,6 +2,7 @@
 
 namespace App;
 use Carbon\Carbon;
+use Auth;
 
 class Project extends Model
 {
@@ -18,8 +19,10 @@ class Project extends Model
     }
 
     public function addComment($body){
-        
-        $this->comments()->create(compact('body'));
+        $user_id = auth()->id();
+        $this->comments()->create(
+            compact('body','user_id')
+        );
         // Comment::create([
         //     'body' => $body,
         //     'project_id' => $this->id

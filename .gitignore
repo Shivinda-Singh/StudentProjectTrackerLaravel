@@ -1,5 +1,5 @@
 /node_modules
-/public/bower
+/resources/assets/bower
 /public/storage
 /public/hot
 /storage/*.key
