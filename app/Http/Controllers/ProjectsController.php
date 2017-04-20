@@ -3,36 +3,36 @@
 namespace App\Http\Controllers;
 
 use  App\Project;
+use App\User;
+use Auth;
+use App\Project_User;
+use Illuminate\Support\Facades\DB;
 
 class ProjectsController extends Controller
 {
     public function index(){
-        $projects = Project::latest()->get();
-
+        $projects = Project::latest()->where('approved',1)->get();
+        
 
         $projects = Project::latest()
         ->filters(request(['month','year']))
+        ->where('approved',1)
         ->get();
 
-        
+        // return $projects;
         
 
         return view('projects.index', compact('projects'));
     }
 
     public function show(Project $project){
-        //Laravel specific queries
-        // $project = DB::table('projects')->find($id);
-        
-        //Eloquent queries
-        // $project = Projects::find($id);
-        
-        return view('projects.show', compact('project'));
-    }
+        if($project->approved||Auth::check()){
+            $user = User::find($project->user_id);
 
-    // public function create(){
-    //     return view('projects.create');
-    // }
+            return view('projects.show', compact('project','user'));
+        }
+        return redirect('/projects');
+    }
 
     public function store(){
 
@@ -46,23 +46,38 @@ class ProjectsController extends Controller
             'github' => 'required'
         ]);
 
+        // auth()->user()->upload(
+        //     new Project(request(['name','description','collaborators','course_code','year_completed','github']))
+        // );
 
-        // Project::create([
-        //     'name'=> request('name'),
-        //     'description' => request('description'),
-        //     'collaborators'=> request('collaborators'),
-        //     'course_code'=> request('course_code'),
-        //     'year'=> request('year'),
-        //     'github'=> request('github'),
-        //     'user_id'=>auth()->id()
+        $project = Project::create([
+            'name' => request('name'),
+            'description' => request('description'),
+            'collaborators' => request('collaborators'),
+            'course_code' => request('course_code'),
+            'year_completed' => request('year_completed'),
+            'github' => request('github'),
+            'user_id' => auth()->id()
+        ]);
+
+        // return $project->id;
+        // Project_User::create([
+        //     'user_id' => $project->user_id,
+        //     'project_id' => $project->id
         // ]);
 
-        auth()->user()->upload(
-            new Project(request(['name','description','collaborators','course_code','year_completed','github']))
-        );
+        DB::table('project_user')->insert([
+            ['user_id' => $project->user_id, 'project_id' => $project->id],
+        ]);
+
         
         session()->flash('message', 'Your post has been published');
 
-        return redirect('/');
+        return redirect('/home');
+    }
+
+    public function showStudent(User $student){
+
+        return view('projects.student', compact('student'));
     }
 }

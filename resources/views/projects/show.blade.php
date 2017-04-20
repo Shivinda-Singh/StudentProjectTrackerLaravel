@@ -5,12 +5,23 @@
     <div class="col-sm-8 blog-main">
         <div class="blog-post">
             <h2 class="blog-post-title">{{$project->name}}</h2>
-            <p class="blog-post-meta">{{$project->created_at}} by <a href="#">{{ $project->user->name }}</a></p>
+            <p class="blog-post-meta">Published on  {{$project->created_at->toFormattedDateString()}} by {{$user->name}}</p>
             <p>{{$project->description}}</p>
             <p>{{$project->course_code}}</p>
             <p>{{$project->year_completed}}</p>
             <p>{{$project->github}}</p>
+            <p>Collaborators</p>
+            @if(count($project->users))
+                <ul>
+                    @foreach ($project->users as $student)
+                        <li>
+                            <a href="/projects/students/{{$student->name}}">{{$student->name}}</a>
+                        </li>
+                    @endforeach
+                </ul>
+            @endif
             <!--<p>{{$project->collaborators}}</p>-->
+            <p>Tags</p>
             @if(count($project->tags))
                 <ul>
                     @foreach ($project->tags as $tag)
@@ -21,16 +32,21 @@
                 </ul>
             @endif
         </div>
+        @if(!$project->pending)
         <!-- /.blog-post -->
         <div class="comments">
             <list-group>
-                @foreach($project->comments as $comment)
+                
+                    @foreach($project->comments as $comment)
+                        
+                        <li  class="list-group-item">
+                            <strong>{{ $comment->created_at->diffForHumans() }}: &nbsp </strong>
+                            {{ $comment->body }}
+                        </li>
+                    @endforeach
+                
                     
-                    <li  class="list-group-item">
-                        <strong>{{ $comment->created_at->diffForHumans() }}: &nbsp </strong>
-                        {{ $comment->body }}
-                    </li>
-                @endforeach
+                
             </list-group>
         </div>
         <div class="card">
@@ -47,6 +63,7 @@
                 </form>
             </div>
         </div>
+        @endif
         
     </div>
      @include('layouts.sidebar')

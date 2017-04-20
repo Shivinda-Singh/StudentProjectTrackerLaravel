@@ -21,6 +21,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         <li><a href="/home">My Projects</a></li>
+                        <li><a href="/projects/create">Upload</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

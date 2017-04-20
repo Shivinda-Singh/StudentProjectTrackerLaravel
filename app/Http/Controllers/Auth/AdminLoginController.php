@@ -87,7 +87,7 @@ class AdminLoginController extends Controller
 
 
         return $this->authenticated($request, $this->guard()->user())
-                ?: redirect()->intended('admin.index');
+                ?: redirect()->intended(route('admin.dashboard'));
     }
 
     /**

@@ -1,11 +1,7 @@
 @extends('layouts.master') 
 @section('content')
 
-<!--<ul class="list-unstyled">
-        @foreach ($projects as $project)
-            <li><a href="/projects/{{$project->id}}">{{$project->description}}</a></li>
-        @endforeach
-    </ul>-->
+
 <div class="col-sm-8 blog-main">
     <div class="blog-header">
         <div class="container">

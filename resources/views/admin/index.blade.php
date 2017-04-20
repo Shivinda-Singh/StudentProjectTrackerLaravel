@@ -8,8 +8,17 @@
                 <div class="panel-heading">Admin Dashboard</div>
 
                 <div class="panel-body">
-                    You are logged i as a <strong>admin</strong>
+                    <h1>Submissions Pending Approval</h1>
+                    @foreach ($pending_projects as $project)
+                        <div class="blog-post">
+                            <h2 class="blog-post-title"><a href="/admin/review/{{$project->id}}">{{$project->name}}</a></h2>
+                            <p class="blog-post-meta">Published on {{$project->created_at->toFormattedDateString()}}</p>
+                            <p>{{$project->description}}</p>
+                        </div>
+                    @endforeach
                 </div>
+
+                
             </div>
         </div>
     </div>
