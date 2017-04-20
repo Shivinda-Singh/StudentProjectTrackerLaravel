@@ -16,7 +16,7 @@ class CommentsController extends Controller
     }
 
     public function store(Project $project){
-            $this->validate(request(), ['body'=>'required|min:2']);
+            $this->validate(request(), ['body'=>'required|min:3']);
             $project->addComment(request('body'));
             
 

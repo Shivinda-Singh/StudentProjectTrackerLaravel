@@ -55,11 +55,17 @@
                     {{ csrf_field() }}
                     @include('layouts.errors')
                     <div class="form-group">
-                        <textarea name="body" id="body" placeholder="Drop a comment" class="form-control" required></textarea>
+                        <textarea name="body" id="body" placeholder="Drop a comment" class="form-control"></textarea>
                     </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Add Comment</button>
-                    </div>
+                    @if(auth()->id())
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Add Comment</button>
+                        </div>
+                    @else
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Login to Leave Comment</button>
+                        </div>
+                    @endif
                 </form>
             </div>
         </div>
