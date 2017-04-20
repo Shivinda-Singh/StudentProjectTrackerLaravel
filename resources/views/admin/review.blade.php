@@ -2,10 +2,12 @@
 
 @section('content')
 
-    <div class="col-sm-8 blog-main">
-        <div class="blog-post">
-            <h2 class="blog-post-title">{{$project->name}}</h2>
-            <p class="blog-post-meta">Published on {{$project->created_at}}</p>
+    <div class="col-sm-8 panel panel-default">
+        <div class="panel-body">
+            <div class="row">
+            <h2 class="panel-heading">{{$project->name}}</h2>
+            <p class="badge badge-pill badge-primary">Published on {{$project->created_at}}</p>
+            </div>
             <p>{{$project->description}}</p>
             <p>{{$project->course_code}}</p>
             <p>{{$project->year_completed}}</p>
@@ -32,7 +34,9 @@
                 </ul>
             @endif
         </div>
-        <form method="POST" action="/admin/update/{{$project->id}}">
+       
+<div class="panel panel-default">
+            <form method="POST" action="/admin/update/{{$project->id}}">
             {{ csrf_field() }}
 
             <div class="form-group">
@@ -51,8 +55,11 @@
 
             <!--<input id="project_id" name="project_id" value="{{$project->id}}"type="text" style="display: none;">-->
         </form>
-        
     </div>
+
+    </div>
+
+    
      @include('layouts.sidebar')
 
 @endsection
