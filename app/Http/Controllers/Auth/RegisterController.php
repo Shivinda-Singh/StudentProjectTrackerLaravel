@@ -71,7 +71,7 @@ class RegisterController extends Controller
 
         session()->flash('message', "Successfully signed up");
 
-        \Mail::to($user)->send(new Welcome($user));
+        //\Mail::to($user)->send(new Welcome($user));
 
         return $user;
     }
