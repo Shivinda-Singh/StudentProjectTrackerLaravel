@@ -2,9 +2,9 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model as BaseModel;
 
-class Tag extends Model
+class Tag extends BaseModel
 {
     public function projects(){
         return $this->belongsToMany(Project::class)->latest()->where('approved',1);
