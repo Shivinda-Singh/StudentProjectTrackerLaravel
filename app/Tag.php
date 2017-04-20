@@ -6,11 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tag extends Model
 {
-    public function Projects(){
-        return $this->belongsToMany(Project::class);
+    public function projects(){
+        return $this->belongsToMany(Project::class)->latest()->where('approved',1);
     }
 
     public function getRouteKeyName(){
         return 'name';
     }
+
+    
 }

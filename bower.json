@@ -14,8 +14,8 @@
     "test",
     "tests"
   ],
-  "dependencies": {
-    "jquery": "^3.2.1",
-    "bootstrap": "v4.0.0-alpha.6"
+  "dependencies": {},
+  "devDependencies": {
+    "bootstrap-toggle": "^2.2.2"
   }
 }

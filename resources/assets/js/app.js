@@ -8,6 +8,8 @@
 
 require('./bootstrap');
 
+require('../bower/bootstrap-toggle/js/bootstrap-toggle.min.js');
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -22,3 +24,17 @@ const app = new Vue({
 
 
 $('#flash-message').delay(500).fadeIn(250).delay(5000).fadeOut(500);
+
+$('#review').change(function() {
+    // $('#reject_reasons').html('Toggle: ' + $(this).prop('checked'))
+    $('#reject_reasons').toggle();
+})
+
+$('#review').bootstrapToggle({
+      on: 'Approve',
+      off: 'Decline'
+});
+
+
+
+

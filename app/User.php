@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+use App\Project;
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -27,13 +29,20 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function projects(){
-        return $this->hasMany(Project::class);
-    }
-
     public function upload(Project $project){
         $this->projects()->save($project);
-
-
     }
+
+    public function projects(){
+        return $this->belongsToMany(Project::class)->latest()->where('approved',1);
+    }
+
+    public function pending_projects(){
+        return $this->belongsToMany(Project::class)->latest()->where('pending',1);
+    }
+
+    public function getRouteKeyName(){
+        return 'name';
+    }
+
 }

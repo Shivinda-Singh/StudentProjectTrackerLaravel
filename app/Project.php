@@ -9,8 +9,12 @@ class Project extends Model
         return $this->hasMany(Comment::class);
     }
 
-    public function user(){
-        return $this->belongsTo(User::class);
+    // public function user(){
+    //     return $this->belongsTo(User::class);
+    // }
+
+    public function users(){
+        return $this->belongsToMany(User::class);
     }
 
     public function addComment($body){
@@ -37,6 +41,7 @@ class Project extends Model
         return static::selectRaw('year(created_at) as year, monthname(created_at) as month, count(*) as published')
         ->groupBy('year','month')
         ->orderByRaw('min(created_at)')
+        ->where('approved',1)
         ->get()
         ->toArray();
     }
@@ -44,4 +49,6 @@ class Project extends Model
     public function tags(){
         return $this->belongsToMany(Tag::class);
     }
+
+    
 }
