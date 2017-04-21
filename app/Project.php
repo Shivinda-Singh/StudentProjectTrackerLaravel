@@ -18,6 +18,10 @@ class Project extends Model
     //     return $this->belongsTo(User::class);
     // }
 
+    public function files(){
+        return $this->hasMany(ProjectFile::class);
+    }
+
     public function users(){
         return $this->belongsToMany(User::class);
     }

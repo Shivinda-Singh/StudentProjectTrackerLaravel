@@ -31,6 +31,17 @@
                     @endforeach
                 </ul>
             @endif
+
+            <p>Uploaded Files</p>
+            @if(count($project->files))
+                <ul>
+                    @foreach ($project->files as $file)
+                        <li>
+                            <a href="{{route('project.download', ['file'=>$file->id])}}">{{$file->filename}}</a>
+                        </li>
+                    @endforeach
+                </ul>
+            @endif
         </div>
         @if(!$project->pending)
         <!-- /.blog-post -->

@@ -4,7 +4,7 @@
     <div class="col-sm-8 blog-main">
         <h1>Upload a Project</h1>
         <hr>
-        <form method="POST" action="/projects">
+        <form method="POST" action="/projects" enctype="multipart/form-data">
             {{ csrf_field() }}
             @include('layouts.errors')
             
@@ -43,6 +43,10 @@
             <div class="form-group">
                 <label for="github">Github</label>
                 <input required type="text" class="form-control" id="github" name="github" placeholder="link">
+            </div>
+            <div class="formg-roup">
+                <label for="files">Upload Files(Max 100mb)</label>
+                <input type="file" name="files[]" id="files" class="form-control" multiple />
             </div>
             <div class="form-group">
                  <button type="submit" class="btn btn-primary">Submit</button>

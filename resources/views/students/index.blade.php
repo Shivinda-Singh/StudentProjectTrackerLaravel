@@ -5,6 +5,7 @@
     <div class="row">
         <div class="col-md-12">
             <a class="btn btn-primary" href="/projects/create">Upload New Project</a>
+            
             <div class="panel panel-default">
                 <div class="panel-heading">Student Dashboard</div>
 
