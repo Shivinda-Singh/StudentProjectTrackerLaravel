@@ -16,7 +16,7 @@
                     </div>
                     <div class="panel-body" >
                         <div class="col-sm-3">
-                            <img class="img-responsive" src="../uploads/{{auth()->user()->avatar}}" alt="Avatar">
+                            <img class="img-responsive" src="/uploads/{{auth()->user()->avatar}}" alt="Avatar">
                         </div>
                         <div class="col-sm-9">
                             <div class="form-group text-right">

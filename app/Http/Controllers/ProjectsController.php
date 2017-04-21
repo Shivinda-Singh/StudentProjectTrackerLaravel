@@ -73,10 +73,11 @@ class ProjectsController extends Controller
         $files = $request->file('files');
         if(!empty($files)){
             foreach ($files as $file) {
-                $filename = $file->store('public');
+                // $filename = $file->store('public');
+                $path = Storage::disk('uploads')->put('files',$file);
                 ProjectFile::create([
                     'project_id' => $project->id,
-                    'filename' => $filename
+                    'filename' => $path
                 ]);
             
             }
@@ -122,21 +123,4 @@ class ProjectsController extends Controller
         return view('projects.student', compact('student'));
     }
 
-    public function getDownload(ProjectFile $file){
-        // $extension = $file->extension();
-        $headers = array(
-              'Content-Type: application/pdf',
-        );
-
-        // $url = Storage::disk('public')->url($file->filename);
-        // Storage::disk('public')->get($file->filename);
-        // $path = Storage::root($file->filename);
-        // $path = Storage::url($file->filename);
-        // $file = Storage::get($path);
-        // return $url;
-        // $file = 
-        $url = Storage::disk('public')->url($file->filename);
-        // $url = storage_path($url);
-        return $url;
-    }
 }

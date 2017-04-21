@@ -65,7 +65,8 @@
                                     <ul>
                                         @foreach ($project->files as $file)
                                         <li>
-                                            <a href="{{route('project.download', ['file'=>$file->id])}}">{{$file->filename}}</a>
+                                            <a href="/uploads/{{$file->filename}}" download="/uploads/{{$file->filename}}">{{$file->filename}}</a>
+                                            
                                         </li>
                                         @endforeach
                                     </ul>
