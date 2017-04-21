@@ -8,7 +8,7 @@
                 <div class="panel-heading"><h4>Admin Dashboard</h4></div>
 
                 <div class="panel-body">
-                @if(count($pending_projects))
+                    @if(count($pending_projects))
                     <h2 class="text-center" style="margin-bottom:22px;">Submissions Pending Approval</h2>
                     @foreach ($pending_projects as $project)
                         <div class="panel panel-default">
@@ -22,21 +22,8 @@
                     @endforeach
                     @else
                     <h2 class="text-center" style="margin-bottom:22px;">No Pending Projects</h2>
-                    
-                    @if(count($pending_projects))
-                    <h1>Submissions Pending Approval</h1>
-                    @foreach ($pending_projects as $project)
-                            <div class="blog-post">
-                                <h2 class="blog-post-title"><a href="/admin/review/{{$project->id}}">{{$project->name}}</a></h2>
-                                <p class="blog-post-meta">Published on {{$project->created_at->toFormattedDateString()}}</p>
-                                <p>{{$project->description}}</p>
-                            </div>
-                    @endforeach
-                       
-                    @else
-                    
-                        <h1>No Pending Projects</h1>
                     @endif
+
                 </div>
 
             </div>
