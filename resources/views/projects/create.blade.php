@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="col-sm-8 blog-main">
+    <div class="col-sm-8 panel panel-default">
         <h1>Upload a Project</h1>
         <hr>
         <form method="POST" action="/projects">
