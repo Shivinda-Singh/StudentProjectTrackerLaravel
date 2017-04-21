@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model as BaseModel;
 
 class Tag extends BaseModel
 {
+    protected $fillable = ['name'];
+    
     public function projects(){
         return $this->belongsToMany(Project::class)->latest()->where('approved',1);
     }
@@ -13,6 +15,5 @@ class Tag extends BaseModel
     public function getRouteKeyName(){
         return 'name';
     }
-
     
 }

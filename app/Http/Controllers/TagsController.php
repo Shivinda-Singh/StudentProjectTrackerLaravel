@@ -8,7 +8,9 @@ use App\Tag;
 
 class TagsController extends Controller
 {
-
+    protected $fillable = [
+        'name',
+    ];
     /**
      * Show the application dashboard.
      *
@@ -19,4 +21,5 @@ class TagsController extends Controller
         $projects = $tag->projects;
         return view('projects.index', compact('projects'));
     }
+
 }

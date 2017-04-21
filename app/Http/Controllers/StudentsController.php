@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use App\User;
 
 class StudentsController extends Controller
 {
@@ -31,7 +32,8 @@ class StudentsController extends Controller
     }
 
     public function showUploadForm(){
-        return view('projects.create');
+        $users = User::all();
+        return view('projects.create', compact('users'));
     }
 
     
