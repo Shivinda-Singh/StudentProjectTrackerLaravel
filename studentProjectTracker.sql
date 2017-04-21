@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 21, 2017 at 04:09 AM
+-- Generation Time: Apr 21, 2017 at 12:06 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -72,7 +72,8 @@ INSERT INTO `comments` (`id`, `user_id`, `project_id`, `body`, `created_at`, `up
 (5, 1, 1, 'ferferferfef', '2017-04-21 00:17:38', '2017-04-21 00:17:38'),
 (6, 1, 2, 'rtgtrg', '2017-04-21 00:35:20', '2017-04-21 00:35:20'),
 (7, 2, 2, 'refefref', '2017-04-21 00:36:14', '2017-04-21 00:36:14'),
-(8, 2, 2, 'rgertg', '2017-04-21 00:38:32', '2017-04-21 00:38:32');
+(8, 2, 2, 'rgertg', '2017-04-21 00:38:32', '2017-04-21 00:38:32'),
+(9, 1, 2, 'yup tup', '2017-04-21 10:28:57', '2017-04-21 10:28:57');
 
 -- --------------------------------------------------------
 
@@ -152,7 +153,30 @@ INSERT INTO `projects` (`id`, `user_id`, `name`, `description`, `collaborators`,
 (3, 1, 'Sports Junkies', 'a sports news app', 'Junkies', NULL, 'INFO3490', 4656, 0, NULL, 1, 'sportsjunkies.com', '2016-05-19 00:35:02', '2017-04-19 00:35:02'),
 (4, 1, 'Student Project Tracker', 'a app for tracking student projects', 'peeeps', NULL, 'INFO 3490', 2017, 0, NULL, 1, 'studentprojecttracker.com', '2017-04-19 03:28:41', '2017-04-19 03:28:41'),
 (40, 1, 'Test Project', 'a testing for tags and collabs', NULL, NULL, 'info 3410', 2017, 1, NULL, 0, 'github', '2017-04-21 05:01:58', '2017-04-21 05:14:35'),
-(41, 1, 'my project', 'some stuff', NULL, NULL, 'info390000', 2017, 1, NULL, 0, 'd link', '2017-04-21 05:28:31', '2017-04-21 05:28:53');
+(41, 1, 'my project', 'some stuff', NULL, NULL, 'info390000', 2017, 1, NULL, 0, 'd link', '2017-04-21 05:28:31', '2017-04-21 05:28:53'),
+(42, 1, 'file upload test', 'files upload', NULL, NULL, 'courselol', 2017, 0, NULL, 1, 'refref', '2017-04-21 06:38:25', '2017-04-21 06:38:25'),
+(43, 1, 'file upload test', 'files upload', NULL, NULL, 'courselol', 2017, 0, NULL, 1, 'refref', '2017-04-21 06:40:00', '2017-04-21 06:40:00'),
+(44, 1, 'upload test', 'test files?', NULL, NULL, 'info 333', 2029, 0, NULL, 1, 'link', '2017-04-21 06:41:37', '2017-04-21 06:41:37'),
+(45, 1, 'upload test', 'test files?', NULL, NULL, 'info 333', 2029, 0, NULL, 1, 'link', '2017-04-21 06:46:16', '2017-04-21 06:46:16'),
+(46, 1, 'eferf', 'refre', NULL, NULL, 'reg', 23233, 0, NULL, 1, 'ertre', '2017-04-21 06:49:23', '2017-04-21 06:49:23'),
+(47, 1, 'eferf', 'refre', NULL, NULL, 'reg', 23233, 0, NULL, 1, 'ertre', '2017-04-21 06:53:27', '2017-04-21 06:53:27'),
+(48, 1, 'rfref', 'fref', NULL, NULL, 'refr', 3455, 0, NULL, 1, 'gtrg', '2017-04-21 06:53:47', '2017-04-21 06:53:47'),
+(49, 1, 'rfref', 'fref', NULL, NULL, 'refr', 3455, 0, NULL, 1, 'gtrg', '2017-04-21 06:59:45', '2017-04-21 06:59:45'),
+(50, 1, 'rfref', 'fref', NULL, NULL, 'refr', 3455, 0, NULL, 1, 'gtrg', '2017-04-21 07:01:17', '2017-04-21 07:01:17'),
+(51, 1, 'rfref', 'fref', NULL, NULL, 'refr', 3455, 0, NULL, 1, 'gtrg', '2017-04-21 07:02:10', '2017-04-21 07:02:10'),
+(52, 1, 'rfref', 'fref', NULL, NULL, 'refr', 3455, 0, NULL, 1, 'gtrg', '2017-04-21 07:02:29', '2017-04-21 07:02:29'),
+(53, 1, 'rfref', 'fref', NULL, NULL, 'refr', 3455, 0, NULL, 1, 'gtrg', '2017-04-21 07:05:43', '2017-04-21 07:05:43'),
+(54, 1, 'reg', 'gtrg', NULL, NULL, 'gtr', 45645, 0, NULL, 1, 'ghrtgh', '2017-04-21 07:06:05', '2017-04-21 07:06:05'),
+(55, 1, 'refr', 'fref', NULL, NULL, 'gtrg', 5435, 0, NULL, 1, 'gfdfg', '2017-04-21 07:06:44', '2017-04-21 07:06:44'),
+(56, 1, 'refr', 'fref', NULL, NULL, 'gtrg', 5435, 0, NULL, 1, 'gfdfg', '2017-04-21 07:07:41', '2017-04-21 07:07:41'),
+(57, 1, 'refr', 'fref', NULL, NULL, 'gtrg', 5435, 0, NULL, 1, 'gfdfg', '2017-04-21 07:08:01', '2017-04-21 07:08:01'),
+(58, 1, 'erf', 'rfref', NULL, NULL, 'erfer', 5345, 0, NULL, 1, 'getrgtr', '2017-04-21 07:08:38', '2017-04-21 07:08:38'),
+(59, 1, 'erf', 'rfref', NULL, NULL, 'erfer', 5345, 0, NULL, 1, 'getrgtr', '2017-04-21 07:14:56', '2017-04-21 07:14:56'),
+(60, 1, 'erf', 'rfref', NULL, NULL, 'erfer', 5345, 0, NULL, 1, 'getrgtr', '2017-04-21 07:20:37', '2017-04-21 07:20:37'),
+(61, 1, 'tgrtg', 'trgtrg', NULL, NULL, '54646', 54645, 0, NULL, 1, 'gtrg', '2017-04-21 07:21:46', '2017-04-21 07:21:46'),
+(62, 1, 'gtrg', 'trgtr', NULL, NULL, 'trgtr', 45645, 0, NULL, 1, 'tgtrgtrg', '2017-04-21 07:22:24', '2017-04-21 07:22:24'),
+(63, 1, 'new project', 'new stuff', NULL, NULL, 'INFO 3490', 2017, 0, NULL, 1, 'le hub link', '2017-04-21 08:03:20', '2017-04-21 08:03:20'),
+(64, 1, 'testing download', 'testing download', NULL, NULL, 'ferf', 43543, 0, NULL, 1, 'frefre', '2017-04-21 08:41:57', '2017-04-21 08:41:57');
 
 -- --------------------------------------------------------
 
@@ -167,6 +191,20 @@ CREATE TABLE `project_files` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `project_files`
+--
+
+INSERT INTO `project_files` (`id`, `project_id`, `filename`, `created_at`, `updated_at`) VALUES
+(1, 62, 'files/h0JzuHiJna3aJ67CifzZ55LwOp2c2PSYMMaJwa48.txt', '2017-04-21 07:22:24', '2017-04-21 07:22:24'),
+(2, 62, 'files/UFjRqovo1ireNs6tBvjGHDQe3dqNIEfb9c0hItLh.txt', '2017-04-21 07:22:24', '2017-04-21 07:22:24'),
+(3, 62, 'files/ApMh0v59S5gY6Jl4oedDCo9EhlqFnaPHo3MNYpkY.xml', '2017-04-21 07:22:24', '2017-04-21 07:22:24'),
+(4, 62, 'files/mIDy68FJOolBwDlqJ3OIQWGi8y34M4QfYXkUrEf1.txt', '2017-04-21 07:22:24', '2017-04-21 07:22:24'),
+(5, 62, 'files/RtIGXCRgkPSflpwaUpfTUuC9ydhuababG8Dt1ktO.html', '2017-04-21 07:22:24', '2017-04-21 07:22:24'),
+(6, 63, 'files/vFcYULjQDXHRHXh6AIowvUoPs23yFGlQtycyk0m1.jpeg', '2017-04-21 08:03:20', '2017-04-21 08:03:20'),
+(7, 63, 'files/tXB9b08It1zrKdUIp7lRbcwMiYeMW2VfkDWX0SKL.jpeg', '2017-04-21 08:03:20', '2017-04-21 08:03:20'),
+(8, 64, 'public/FTPMBAjHSJNNODyugzdAoYgmtOTz3XHpjcCgCTsD.jpeg', '2017-04-21 08:41:57', '2017-04-21 08:41:57');
 
 -- --------------------------------------------------------
 
@@ -192,7 +230,11 @@ INSERT INTO `project_tag` (`project_id`, `tag_id`) VALUES
 (40, 15),
 (40, 16),
 (41, 17),
-(41, 18);
+(41, 18),
+(62, 19),
+(63, 20),
+(63, 21),
+(64, 22);
 
 -- --------------------------------------------------------
 
@@ -214,9 +256,13 @@ INSERT INTO `project_user` (`user_id`, `project_id`) VALUES
 (1, 4),
 (1, 5),
 (1, 40),
-(1, 41),
-(2, 40),
-(2, 41);
+(1, 62),
+(1, 63),
+(1, 64),
+(2, 62),
+(2, 63),
+(2, 64),
+(3, 63);
 
 -- --------------------------------------------------------
 
@@ -246,7 +292,11 @@ INSERT INTO `tags` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (15, 'tags', '2017-04-21 05:01:58', '2017-04-21 05:01:58'),
 (16, 'collabs', '2017-04-21 05:01:58', '2017-04-21 05:01:58'),
 (17, 'dope', '2017-04-21 05:28:31', '2017-04-21 05:28:31'),
-(18, 'swag', '2017-04-21 05:28:31', '2017-04-21 05:28:31');
+(18, 'swag', '2017-04-21 05:28:31', '2017-04-21 05:28:31'),
+(19, 'trgtr', '2017-04-21 07:22:24', '2017-04-21 07:22:24'),
+(20, 'new', '2017-04-21 08:03:20', '2017-04-21 08:03:20'),
+(21, 'stuff', '2017-04-21 08:03:20', '2017-04-21 08:03:20'),
+(22, 'refre', '2017-04-21 08:41:57', '2017-04-21 08:41:57');
 
 -- --------------------------------------------------------
 
@@ -259,6 +309,7 @@ CREATE TABLE `users` (
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `avatar` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -268,10 +319,10 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Feng', 'Feng@lol.com', '$2y$10$Y9u/EnHjwAWeJDcJ8teh8.AQ3DU5xBqeBnneHP25vO8ZFW5XbMPpG', 'yyBp5c9RDJI07aUDPm8WNeGLYzdD3Fke0JHsmCPGQx4fE3Ss8srtWHUTLtwi', '2017-04-19 00:17:14', '2017-04-19 00:17:14'),
-(2, 'john cena', 'john@cena.com', '$2y$10$YvVXEvwn0pGzjbkhFc/wMuFQPkBmvDBhDNtt1qT5OCt3Tt9F8Zw9K', 'VTr9VTDSUzczUdSBwShN6CCg8D0qlLvl4ET3zBpO2Nrzw3RwaREHgwDFUUl5', '2017-04-19 00:41:47', '2017-04-19 00:41:47'),
-(3, 'rgfertg', 'dgtrg@lol.com', '$2y$10$HNhfQozLKolgAQbB93gPE.vG6HwiawP.sQhD4jssLpfSKVfxklkUe', 'ehihXLfbqGZJc5IKVlXhhVCqS3UXO21HfMX2dbdeR0FFXyi2ItD0Vua2tjII', '2017-04-20 22:30:54', '2017-04-20 22:30:54');
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `avatar`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Feng', 'Feng@lol.com', '$2y$10$Y9u/EnHjwAWeJDcJ8teh8.AQ3DU5xBqeBnneHP25vO8ZFW5XbMPpG', 'avatars/Ca9CrI4v5jqpE42SAkNwEildjTmTiGkt0D8Sti5n.png', 'Ai24MelpOXcpAIfHTiV8iBkVUM8BD0zkAS2lgGt4a6WI2VjK3aSJL7qNPJyh', '2017-04-19 00:17:14', '2017-04-21 13:37:58'),
+(2, 'john cena', 'john@cena.com', '$2y$10$YvVXEvwn0pGzjbkhFc/wMuFQPkBmvDBhDNtt1qT5OCt3Tt9F8Zw9K', NULL, 'VTr9VTDSUzczUdSBwShN6CCg8D0qlLvl4ET3zBpO2Nrzw3RwaREHgwDFUUl5', '2017-04-19 00:41:47', '2017-04-19 00:41:47'),
+(3, 'rgfertg', 'dgtrg@lol.com', '$2y$10$HNhfQozLKolgAQbB93gPE.vG6HwiawP.sQhD4jssLpfSKVfxklkUe', NULL, 'ehihXLfbqGZJc5IKVlXhhVCqS3UXO21HfMX2dbdeR0FFXyi2ItD0Vua2tjII', '2017-04-20 22:30:54', '2017-04-20 22:30:54');
 
 --
 -- Indexes for dumped tables
@@ -354,7 +405,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `migrations`
 --
@@ -364,17 +415,17 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `projects`
 --
 ALTER TABLE `projects`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 --
 -- AUTO_INCREMENT for table `project_files`
 --
 ALTER TABLE `project_files`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `tags`
 --
 ALTER TABLE `tags`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `users`
 --
