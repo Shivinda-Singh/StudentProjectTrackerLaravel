@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
+use Illuminate\Support\Facades\Storage;
 
 class StudentsController extends Controller
 {
@@ -36,7 +37,21 @@ class StudentsController extends Controller
         return view('projects.create', compact('users'));
     }
 
-    
+    public function uploadAvatar(Request $request){
+        // $path = $request->file('avatar')->store('avatars');
+        // $user = Auth::user();
+        // $user->avatar =  $path;
+        // $user->save();
+        // return redirect('/home');
+        // $file = $request->avatar;
+        // Storage::disk('uploads')->put('avatars', $file);
+        $path = Storage::disk('uploads')->put('avatars', $request->file('avatar'));
+        // $path = Storage::url($file);
+        $user = Auth::user();
+        $user->avatar =  $path;
+        $user->save();
+        return redirect('/home');
+    }
 
     
 }

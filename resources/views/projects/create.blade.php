@@ -44,7 +44,7 @@
                 <label for="github">Github</label>
                 <input required type="text" class="form-control" id="github" name="github" placeholder="link">
             </div>
-            <div class="formg-roup">
+            <div class="form-group">
                 <label for="files">Upload Files(Max 100mb)</label>
                 <input type="file" name="files[]" id="files" class="form-control" multiple />
             </div>

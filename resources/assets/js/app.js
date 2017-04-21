@@ -36,6 +36,16 @@ $('#review').bootstrapToggle({
       off: 'Decline'
 });
 
+$('#changeAvatar').change(function() {
+    // $('#reject_reasons').html('Toggle: ' + $(this).prop('checked'))
+    $('#avatarForm').toggle();
+})
+
+$('#changeAvatar').bootstrapToggle({
+      on: 'Change Avatar',
+      off: 'Cancel'
+});
+
 $(".collaborators").select2();
 
 $(".tags").select2({

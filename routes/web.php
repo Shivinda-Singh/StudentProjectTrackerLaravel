@@ -33,9 +33,12 @@ Route::get('/project/download/{file}', 'ProjectsController@getDownload')->name('
 // ->middleware('auth')
 
 
+
+
 Auth::routes();
 
 Route::get('/home', 'StudentsController@index');
+Route::post('/home' ,'StudentsController@uploadAvatar');
 
 
 
