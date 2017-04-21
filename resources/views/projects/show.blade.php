@@ -22,9 +22,9 @@
             @endif
             <!--<p>{{$project->collaborators}}</p>-->
             <p>Tags</p>
-            @if(count($project->tags))
+            @if(count($project->tagged))
                 <ul>
-                    @foreach ($project->tags as $tag)
+                    @foreach ($project->tagged as $tag)
                         <li>
                             <a href="/projects/tags/{{$tag->name}}">{{$tag->name}}</a>
                         </li>

@@ -17,9 +17,20 @@
                 <label for="desccription">Description</label>
                 <textarea required class="form-control" id="description" name="description" rows="3"></textarea>
             </div>
+
             <div class="form-group">
-                <label for="collaborators">Collaborators</label>
-                <input required type="text" class="form-control" id="collaborators" name="collaborators">
+                <label for="collaborators">Collaborators</label><br>
+                <select id="collaborators" name="collaborators[]" class="collaborators" multiple="multiple" style="width:100%;" >
+                    @foreach($users as $user)
+                    <option value="{{$user->id}}">{{$user->name}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="tags">Tags</label><br>
+                <select id="tags" name="tags[]" class="tags" multiple="multiple" style="width:100%;" >
+                    <option value="null">Add Tag</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="course_code">Course Code</label>

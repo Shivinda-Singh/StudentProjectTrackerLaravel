@@ -1,5 +1,6 @@
 /node_modules
 /resources/assets/bower
+/resources/assets/vendor
 /public/storage
 /public/hot
 /storage/*.key

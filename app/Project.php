@@ -3,9 +3,13 @@
 namespace App;
 use Carbon\Carbon;
 use Auth;
+use App\Tag;
+use Illuminate\Support\Facades\DB;
 
 class Project extends Model
 {
+    // protected $fillable = ['user_id','name','description','course_code','year_completed','github'];
+
     public function comments(){
         return $this->hasMany(Comment::class);
     }
@@ -49,8 +53,25 @@ class Project extends Model
         ->toArray();
     }
 
-    public function tags(){
+    public function tagged(){
         return $this->belongsToMany(Tag::class);
+    }
+
+    
+    public function addCollab($id){
+        DB::table('project_user')->insert([
+            ['user_id' => $id, 'project_id' => $this->id],
+        ]);
+    }
+
+    public function addTag($name){
+        $tag = Tag::create([
+            'name' => $name,
+        ]);
+
+        DB::table('project_tag')->insert([
+            ['tag_id' => $tag->id, 'project_id' => $this->id],
+        ]);
     }
 
     

@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers;
 
+
+
 use  App\Project;
 use App\User;
-use Auth;
 use App\Project_User;
+use App\Tag;
+use Auth;
 use Illuminate\Support\Facades\DB;
 
 class ProjectsController extends Controller
 {
+
     public function index(){
         $projects = Project::latest()->where('approved',1)->get();
         
@@ -35,12 +39,10 @@ class ProjectsController extends Controller
     }
 
     public function store(){
-
         //validate forms
         $this->validate(request(),[
             'name' => 'required',
             'description' => 'required',
-            'collaborators' => 'required',
             'course_code' => 'required',
             'year_completed' => 'required',
             'github' => 'required'
@@ -50,15 +52,22 @@ class ProjectsController extends Controller
         //     new Project(request(['name','description','collaborators','course_code','year_completed','github']))
         // );
 
+        $collaborators = request('collaborators');
+
+        $tags = request('tags');
+
         $project = Project::create([
             'name' => request('name'),
             'description' => request('description'),
-            'collaborators' => request('collaborators'),
             'course_code' => request('course_code'),
             'year_completed' => request('year_completed'),
             'github' => request('github'),
             'user_id' => auth()->id()
         ]);
+
+        //add attach tags to project
+
+        //attach users to project
 
         // return $project->id;
         // Project_User::create([
@@ -66,9 +75,26 @@ class ProjectsController extends Controller
         //     'project_id' => $project->id
         // ]);
 
-        DB::table('project_user')->insert([
-            ['user_id' => $project->user_id, 'project_id' => $project->id],
-        ]);
+        
+        if(count($tags)){
+            foreach($tags as $tag){
+                $project->addTag($tag);
+            }
+        }
+
+        if(count($collaborators)){
+            foreach($collaborators as $collaborator){
+                $project->addCollab($collaborator);
+            }
+        }
+
+        
+
+        
+        
+
+
+        
 
         
         session()->flash('message', 'Your post has been published');
