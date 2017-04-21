@@ -22,9 +22,9 @@
             @endif
             <!--<p>{{$project->collaborators}}</p>-->
             <p>Tags</p>
-            @if(count($project->tags))
+            @if(count($project->tagged))
                 <ul>
-                    @foreach ($project->tags as $tag)
+                    @foreach ($project->tagged as $tag)
                         <li>
                             <a href="/projects/tags/{{$tag->name}}">{{$tag->name}}</a>
                         </li>
@@ -36,10 +36,10 @@
         <!-- /.blog-post -->
         <div class="comments">
             <list-group>
-                
                     @foreach($project->comments as $comment)
                         
                         <li  class="list-group-item">
+                            <strong>{{$comment->user->name}}</strong><br>
                             <strong>{{ $comment->created_at->diffForHumans() }}: &nbsp </strong>
                             {{ $comment->body }}
                         </li>
@@ -51,15 +51,21 @@
         </div>
         <div class="card">
             <div class="card-block">
-                <form method="POST" action="/projects/{{$project->id}}/comments">
+                <form method="POST" action="/projects/{{$project->id}}">
                     {{ csrf_field() }}
                     @include('layouts.errors')
                     <div class="form-group">
-                        <textarea name="body" id="body" placeholder="Drop a comment" class="form-control" required></textarea>
+                        <textarea name="body" id="body" placeholder="Drop a comment" class="form-control"></textarea>
                     </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Add Comment</button>
-                    </div>
+                    @if(auth()->id())
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Add Comment</button>
+                        </div>
+                    @else
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Login to Leave Comment</button>
+                        </div>
+                    @endif
                 </form>
             </div>
         </div>

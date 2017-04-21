@@ -9,6 +9,7 @@
 require('./bootstrap');
 
 require('../bower/bootstrap-toggle/js/bootstrap-toggle.min.js');
+require('../vendor/select2-master/dist/js/select2.min.js');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -35,6 +36,11 @@ $('#review').bootstrapToggle({
       off: 'Decline'
 });
 
+$(".collaborators").select2();
+
+$(".tags").select2({
+  tags: true
+})
 
 
 

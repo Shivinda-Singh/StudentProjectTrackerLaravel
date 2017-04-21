@@ -25,10 +25,12 @@ Route::get('/projects', 'ProjectsController@index');
 Route::post('/projects', 'ProjectsController@store');
 Route::get('/projects/create', 'StudentsController@showUploadForm');
 Route::get('/projects/{project}', 'ProjectsController@show');
-Route::post('/projects/{project}/comments','CommentsController@store');
+// Route::get('/projects/addcomment/{$project}', 'CommentsController@add')->name('comments.add')
+Route::post('/projects/{project}','CommentsController@store')->middleware('auth');;
 Route::get('/projects/tags/{tag}', 'TagsController@index');
 Route::get('/projects/students/{student}','ProjectsController@showStudent');
 
+// ->middleware('auth')
 
 
 Auth::routes();
