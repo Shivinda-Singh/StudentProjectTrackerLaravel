@@ -1,13 +1,14 @@
 @extends('layouts.master')
 
 @section('content')
-
-    <div class="col-sm-8 panel panel-default">
+<div class="container">
+    <div class="col-md-8 panel panel-default">
         <div class="panel-body">
             <div class="row">
-            <h2 class="panel-heading">{{$project->name}}</h2>
-            <p class="badge badge-pill badge-primary">Published on {{$project->created_at}}</p>
+            <h2 class="panel-heading">{{$project->name}}<br><span class="badge badge-pill badge-default">Published on {{$project->created_at}}</span></h2>
+            
             </div>
+            <div class="panel-body">
             <p>{{$project->description}}</p>
             <p>{{$project->course_code}}</p>
             <p>{{$project->year_completed}}</p>
@@ -33,34 +34,37 @@
                     @endforeach
                 </ul>
             @endif
+            </div>
         </div>
        
-<div class="panel panel-default">
+    <div class="panel panel-default">
+        <div class="panel-body">
             <form method="POST" action="/admin/update/{{$project->id}}">
             {{ csrf_field() }}
 
-            <div class="form-group">
+            <div class="panel-text">
                 <input id="review" name="review" type="checkbox" checked data-toggle="toggle" data-onstyle="success" data-on="Enabled" data-off="Disabled">
+                <p></p>
             </div>
+
 
             <div class="form-group" id="reject_reasons" style="display: none;">
                 <label for="rejection_reasons">Reasons for Rejection</label>
                 <textarea class="form-control" id="rejection_reasons" name="rejection_reasons" rows="3"></textarea>
             </div>
 
-            <div class="form-group">
-                 <button type="submit" class="btn btn-primary">Submit</button><br>
+            <div class="panel-text">
+                 <button type="submit" class="btn btn-primary" style="width:94px;">Submit</button><br>
                 <small id="submitHelp" class="form-text text-muted">Use the toggle above to approve or reject this project submission</small>
             </div>
 
             <!--<input id="project_id" name="project_id" value="{{$project->id}}"type="text" style="display: none;">-->
         </form>
+        </div>
     </div>
 
     </div>
-
-    
-     @include('layouts.sidebar')
-
+    @include('layouts.sidebar')
+</div>
+  
 @endsection
-
