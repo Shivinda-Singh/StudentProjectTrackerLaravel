@@ -10,14 +10,20 @@
                 <div class="panel-body">
                     
                     @if(count($pending_projects))
-                    <h1>Submissions Pending Approval</h1>
-                    @foreach ($pending_projects as $project)
-                            <div class="blog-post">
-                                <h2 class="blog-post-title"><a href="/admin/review/{{$project->id}}">{{$project->name}}</a></h2>
-                                <p class="blog-post-meta">Published on {{$project->created_at->toFormattedDateString()}}</p>
-                                <p>{{$project->description}}</p>
-                            </div>
-                    @endforeach
+                         <h3 class="alert alert-warning">Pending Projects</h3> 
+                        @foreach ($pending_projects as $project)
+                                <div class="card card-inverse card-info mb-3 text-left">
+                                    <div class="card-block">
+                                        <blockquote class="card-blockquote">
+                                            <div>
+                                                <h2><a href="/admin/review/{{$project->id}}">{{$project->name}}</a></h2>
+                                                <p>Published on {{$project->created_at->toFormattedDateString()}}</p>
+                                                <p>{{$project->description}}</p>
+                                            </div>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                        @endforeach
                        
                     @else
                     

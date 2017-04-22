@@ -22,7 +22,8 @@ class ProjectsController extends Controller
         
 
         $projects = Project::latest()
-        ->filters(request(['month','year']))
+        // ->filters(request(['month','year']))
+        ->filters(request(['year']))
         ->where('approved',1)
         ->get();
 
@@ -57,10 +58,9 @@ class ProjectsController extends Controller
         // );
 
         $collaborators = $request->collaborators;
-         
         // return $collaborators;
         $tags = $request->tags;
-
+        // return $tags;
         $project = Project::create([
             'name' => $request->name,
             'description' => $request->description,
@@ -72,12 +72,14 @@ class ProjectsController extends Controller
 
         $files = $request->file('files');
         if(!empty($files)){
-            foreach ($files as $file) {
+            foreach ($files as $fileno => $file) {
                 // $filename = $file->store('public');
-                $path = Storage::disk('uploads')->put('files',$file);
+                $filename = $file->getClientOriginalName();
+                $path = Storage::disk('uploads')->putFileAs('files/'.auth()->user()->id,$file,$filename );
                 ProjectFile::create([
                     'project_id' => $project->id,
-                    'filename' => $path
+                    'path' => $path,
+                    'name' => $filename
                 ]);
             
             }

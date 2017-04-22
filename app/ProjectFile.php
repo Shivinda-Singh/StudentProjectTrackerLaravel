@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProjectFile extends Model
 {
-    protected $fillable=['project_id','filename'];
+    protected $fillable=['project_id','name','path'];
 
     public function project(){
         return $this->belongsTo('App\Project');

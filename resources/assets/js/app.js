@@ -46,7 +46,9 @@ $('#changeAvatar').bootstrapToggle({
       off: 'Cancel'
 });
 
-$(".collaborators").select2();
+$(".collaborators").select2({
+    tags:true
+});
 
 $(".tags").select2({
   tags: true

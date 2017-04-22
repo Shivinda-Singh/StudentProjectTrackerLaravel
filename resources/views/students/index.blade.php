@@ -37,40 +37,80 @@
                          
                     </div>
                 </div>
-                <div class="col-sm-12 text-right">
-                        <a class="btn btn-success" href="/projects/create"><i class="glyphicon glyphicon-plus" style="color:white;"></i>&nbsp Upload New Project</a>
-                </div>
-                <div class="col-sm-6 panel panel-default">
-                    <h3 class="alert alert-success">Published Projects</h3> 
-                    @foreach ($projects as $project)
-                        <div class="card card-inverse card-info mb-3 text-left">
-                            <div class="card-block">
-                                <blockquote class="card-blockquote">
-                                <p>@include('projects.project')</p>
-                                <!--<footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>-->
-                                </blockquote>
-                            </div>
+                <div class="col-sm-6">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            Projects
                         </div>
-                    @endforeach
-                 </div>
-                 <div class="col-sm-6 panel panel-default">   
-                    <h3 class="alert alert-warning">Pending Projects</h3> 
-                    @if(count($pending_projects))
-                        @foreach ($pending_projects as $project)
-                            <div class="card card-inverse card-info mb-3 text-left">
-                                <div class="card-block">
-                                    <blockquote class="card-blockquote">
-                                    <p>@include('projects.project')</p>
-                                    </blockquote>
+                        <div class="panel-body">
+                            @foreach ($projects as $project)
+                                <div class="card card-inverse card-info mb-3 text-left">
+                                    <div class="card-block">
+                                        <blockquote class="card-blockquote">
+                                        <p>@include('projects.project')</p>
+                                        
+                                        </blockquote>
+                                    </div>
                                 </div>
-                            </div>
-                        @endforeach
-                    @else
-                        <div>
-                            <h3><u>No Pending Projects</u></h3>
+                            @endforeach
                         </div>
-                    @endif
-                </div>    
+                    </div>
+                 </div>
+                 <div class="col-sm-6">
+                    <div class="panel panel-warning">   
+                        <div class="panel-heading">
+                            Pending Projects
+                        </div>
+                        <!--<h3 class="alert alert-warning">Pending Projects</h3> -->
+                        <div class="panel-body">
+                            @if(count($pending_projects))
+                                @foreach ($pending_projects as $project)
+                                    <div class="card card-inverse card-info mb-3 text-left">
+                                        <div class="card-block">
+                                            <blockquote class="card-blockquote">
+                                            <p>@include('projects.project')</p>
+                                            </blockquote>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            @else
+                                <div>
+                                    <div class="card card-inverse card-info mb-3 text-center">
+                                        <div class="card-block">
+                                            <blockquote class="card-blockquote">
+                                            <p>No Pending Projects</p>
+                                            <a class="btn btn-success" href="/projects/create"><i class="glyphicon glyphicon-plus" style="color:white;"></i>&nbsp Upload New Project</a>
+                                            </blockquote>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+                        </div>
+                        
+                    </div>  
+                    
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            Rejected Projects
+                        </div>
+                        <div class="panel-body">
+                            @foreach ($rejected_projects as $project)
+                                    <div class="card card-inverse card-info mb-3 text-left">
+                                        <div class="card-block">
+                                            <blockquote class="card-blockquote">
+                                            <p>@include('projects.project')</p>
+                                            <div class="alert alert-danger">
+                                                <strong>Reasons for Rejection:</strong><br>
+                                                <p>{{$project->rejection_reasons}}</p>
+                                            </div>
+                                            </blockquote>
+                                        </div>
+                                    </div>
+                            @endforeach
+                        </div>    
+                    </div>
+                 </div>
+                   
                 </div>
             </div>
         </div>
