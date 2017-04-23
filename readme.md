@@ -1,9 +1,9 @@
-###Student Tracker Project
-#Introduction
+### Student Tracker Project
+# Introduction
 
 <p>The development of a web-based database to document and showcase the past projects which students have worked on. This will help future students to appreciate the work done for projects in the past. It will also allow students to have a referenceable online resource to highlight their accomplishments during their undergraduate degree.</p>
 
-#Capabilities
+# Capabilities
 1. Two types of users: Administrators and Students
 2. Students can sign up, however information published will only be visible after administrator approval.
 3. Students can provide the following details about the project:
@@ -17,11 +17,11 @@
   h. Tags
 4. Users can view website without signing in. However, only other approved students can access the uploading project files.
 
-#Pre-Requisites
+# Pre-Requisites
 1. Composer
 2. NodeJs
 
-#Installation
+# Installation
 * Composer Install
 * Npm Install
 * Bower install
