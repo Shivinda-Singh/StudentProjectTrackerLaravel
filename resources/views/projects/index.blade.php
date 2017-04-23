@@ -3,7 +3,7 @@
 
 
 <div class="col-sm-8">
-    <h2>Published Projects</h2>
+    <h2>Projects</h2>
     @foreach ($projects as $project)
         @include('projects.project')
     @endforeach
@@ -13,4 +13,3 @@
  @include('layouts.sidebar')
 
 @endsection
-

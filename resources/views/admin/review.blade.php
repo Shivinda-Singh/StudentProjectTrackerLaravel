@@ -7,7 +7,7 @@
         <form method="POST" action="/admin/update/{{$project->id}}">
             {{ csrf_field() }}
 
-            <div class="form-group">
+            <div class="form-group text-right">
                 <input id="review" name="review" type="checkbox" checked data-toggle="toggle" data-onstyle="success" data-on="Enabled" data-off="Disabled">
             </div>
 
