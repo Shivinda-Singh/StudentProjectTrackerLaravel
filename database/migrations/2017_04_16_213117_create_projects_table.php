@@ -18,10 +18,12 @@ class CreateProjectsTable extends Migration
             $table->integer('user_id');
             $table->string('name');
             $table->longText('description');
-            $table->string('collaborators');
             $table->string('course_code');
             $table->integer('year_completed');
-            $table->string('github');
+            $table->string('github')->nullable();
+            $table->boolean('approved')->default(0);
+            $table->boolean('pending')->default(1);
+            $table->string('rejection_reasons')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });

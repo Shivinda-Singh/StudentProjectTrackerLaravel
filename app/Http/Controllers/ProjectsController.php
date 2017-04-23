@@ -65,8 +65,8 @@ class ProjectsController extends Controller
             'name' => $request->name,
             'description' => $request->description,
             'course_code' => $request->course_code,
-            'year_completed' => $request->year_completed,
             'github' => $request->github,
+            'year_completed' => $request->year_completed,
             'user_id' => auth()->id()
         ]);
 
