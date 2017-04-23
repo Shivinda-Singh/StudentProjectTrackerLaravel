@@ -3,9 +3,6 @@
 
 <p>The development of a web-based database to document and showcase the past projects which students have worked on. This will help future students to appreciate the work done for projects in the past. It will also allow students to have a referenceable online resource to highlight their accomplishments during their undergraduate degree.</p>
 
-#Site Link: 
-<a>https://github.com/HaifengMei/StudentProjectTrackerLaravel</a>
-
 # Capabilities
 1. Two types of users: Administrators and Students
 2. Users can sign up, however information published will only be visible after administrator approval.
@@ -33,3 +30,6 @@
 * php artisan migrate 
 * php artisan db:seed
 * php artisan serve
+
+# Notes
+* You need to manaually insert an admin user into db
