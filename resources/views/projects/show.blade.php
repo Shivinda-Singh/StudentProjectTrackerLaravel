@@ -1,78 +1,53 @@
-@extends('layouts.master')
+@extends('layouts.master') @section('content')
 
-@section('content')
+<!--Starts here-->
 
-    <div class="col-sm-8 blog-main">
-        <div class="blog-post">
-            <h2 class="blog-post-title">{{$project->name}}</h2>
-            <p class="blog-post-meta">Published on  {{$project->created_at->toFormattedDateString()}} by {{$user->name}}</p>
-            <p>{{$project->description}}</p>
-            <p>{{$project->course_code}}</p>
-            <p>{{$project->year_completed}}</p>
-            <p>{{$project->github}}</p>
-            <p>Collaborators</p>
-            @if(count($project->users))
-                <ul>
-                    @foreach ($project->users as $student)
-                        <li>
-                            <a href="/projects/students/{{$student->name}}">{{$student->name}}</a>
-                        </li>
-                    @endforeach
-                </ul>
-            @endif
-            <!--<p>{{$project->collaborators}}</p>-->
-            <p>Tags</p>
-            @if(count($project->tagged))
-                <ul>
-                    @foreach ($project->tagged as $tag)
-                        <li>
-                            <a href="/projects/tags/{{$tag->name}}">{{$tag->name}}</a>
-                        </li>
-                    @endforeach
-                </ul>
-            @endif
+<div class="col-sm-8">
+
+    @include('projects.details')
+    
+    <!-- /.blog-post -->
+    @if(!$project->pending)
+    <div class="card">
+        <div class="card-block">
+            <form method="POST" action="/projects/{{$project->id}}">
+                {{ csrf_field() }} @include('layouts.errors')
+                <div class="form-group">
+                    <textarea name="body" id="body" placeholder="Drop a comment" class="form-control"></textarea>
+                </div>
+                @if(auth()->id())
+                <div class="form-group text-right">
+                    <button type="submit" class="btn btn-primary">Add Comment</button>
+                </div>
+                @else
+                <div class="form-group text-right">
+                    <button type="submit" class="btn btn-primary">Login to Leave Comment</button>
+                </div>
+                @endif
+            </form>
         </div>
-        @if(!$project->pending)
-        <!-- /.blog-post -->
-        <div class="comments">
-            <list-group>
-                    @foreach($project->comments as $comment)
-                        
-                        <li  class="list-group-item">
-                            <strong>{{$comment->user->name}}</strong><br>
-                            <strong>{{ $comment->created_at->diffForHumans() }}: &nbsp </strong>
-                            {{ $comment->body }}
-                        </li>
-                    @endforeach
-                
-                    
-                
-            </list-group>
-        </div>
-        <div class="card">
-            <div class="card-block">
-                <form method="POST" action="/projects/{{$project->id}}">
-                    {{ csrf_field() }}
-                    @include('layouts.errors')
-                    <div class="form-group">
-                        <textarea name="body" id="body" placeholder="Drop a comment" class="form-control"></textarea>
-                    </div>
-                    @if(auth()->id())
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Add Comment</button>
-                        </div>
-                    @else
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Login to Leave Comment</button>
-                        </div>
-                    @endif
-                </form>
-            </div>
-        </div>
-        @endif
-        
     </div>
-     @include('layouts.sidebar')
-
-@endsection
-
+    <div class="comments">
+        <list-group>
+            <label for="Comments">Comments</label>
+            @foreach($project->comments as $comment)
+            <li class="list-group-item">
+                <div class="row">
+                        <div class="col-sm-2">
+                            <a href="/projects/students/{{$comment->user->name}}"> <img class="img-responsive" src="/uploads/{{$comment->user->avatar}}" alt="Avatar"></a>
+                            
+                    </div>
+                    <div class="col-sm-10">
+                        <a href="/projects/students/{{$comment->user->name}}">{{$comment->user->name}}</a><span class="badge pull-right">{{ $comment->created_at->diffForHumans() }}</span>
+                        <br>
+                        {{ $comment->body }}
+                    </div>
+                </div>
+                
+            </li>
+            @endforeach
+        </list-group>
+    </div>
+    @endif
+</div>
+@include('layouts.sidebar') @endsection

@@ -11236,25 +11236,37 @@ __webpack_require__(33);
 Vue.component('example', __webpack_require__(36));
 
 var app = new Vue({
-  el: '#app'
+    el: '#app'
 });
 
 $('#flash-message').delay(500).fadeIn(250).delay(5000).fadeOut(500);
 
 $('#review').change(function () {
-  // $('#reject_reasons').html('Toggle: ' + $(this).prop('checked'))
-  $('#reject_reasons').toggle();
+    // $('#reject_reasons').html('Toggle: ' + $(this).prop('checked'))
+    $('#reject_reasons').toggle();
 });
 
 $('#review').bootstrapToggle({
-  on: 'Approve',
-  off: 'Decline'
+    on: 'Approve',
+    off: 'Decline'
 });
 
-$(".collaborators").select2();
+$('#changeAvatar').change(function () {
+    // $('#reject_reasons').html('Toggle: ' + $(this).prop('checked'))
+    $('#avatarForm').toggle();
+});
+
+$('#changeAvatar').bootstrapToggle({
+    on: 'Change Avatar',
+    off: 'Cancel'
+});
+
+$(".collaborators").select2({
+    tags: true
+});
 
 $(".tags").select2({
-  tags: true
+    tags: true
 });
 
 /***/ }),

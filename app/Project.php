@@ -18,6 +18,10 @@ class Project extends Model
     //     return $this->belongsTo(User::class);
     // }
 
+    public function files(){
+        return $this->hasMany(ProjectFile::class);
+    }
+
     public function users(){
         return $this->belongsToMany(User::class);
     }
@@ -34,20 +38,32 @@ class Project extends Model
     }
 
     public function scopeFilters($query, $filters){
-        if($month = $filters['month']){
-            $query->whereMonth('created_at', Carbon::parse($month)->month);
-        }
+        // if($month = $filters['month']){
+        //     $query->whereMonth('created_at', Carbon::parse($month)->month);
+        // }
+
+        // if($year = $filters['year']){
+        //     $query->whereYear('created_at', $year);
+
+        // }
 
         if($year = $filters['year']){
-            $query->whereYear('created_at', $year);
+            $query->where('year_completed', $year);
 
         }
     }
 
     public static function archives(){
-        return static::selectRaw('year(created_at) as year, monthname(created_at) as month, count(*) as published')
-        ->groupBy('year','month')
-        ->orderByRaw('min(created_at)')
+        // return static::selectRaw('year(created_at) as year, monthname(created_at) as month, count(*) as published')
+        // ->groupBy('year','month')
+        // ->orderByRaw('min(created_at)')
+        // ->where('approved',1)
+        // ->get()
+        // ->toArray();
+
+         return static::selectRaw('year_completed as year, count(*) as published')
+        ->groupBy('year')
+        ->orderByRaw('min(year_completed)')
         ->where('approved',1)
         ->get()
         ->toArray();
@@ -65,9 +81,12 @@ class Project extends Model
     }
 
     public function addTag($name){
-        $tag = Tag::create([
+        $tag= Tag::where('name',$name)->first();
+        if($tag==null){
+            $tag = Tag::create([
             'name' => $name,
-        ]);
+            ]);
+        }
 
         DB::table('project_tag')->insert([
             ['tag_id' => $tag->id, 'project_id' => $this->id],

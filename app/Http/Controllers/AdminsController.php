@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Project;
+use App\User;
 
 class AdminsController extends Controller
 {
@@ -30,7 +31,8 @@ class AdminsController extends Controller
 
     public function review(Project $project)
     {
-        return view('admin.review', compact('project'));
+        $user = User::find($project->user_id); 
+        return view('admin.review', compact('project','user'));
     }
 
     public function update(Request $request, $id){

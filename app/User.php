@@ -41,6 +41,14 @@ class User extends Authenticatable
         return $this->belongsToMany(Project::class)->latest()->where('pending',1);
     }
 
+     public function rejected_projects(){
+        return $this->belongsToMany(Project::class)->latest()
+        ->where([
+            ['approved',0],
+            ['pending', 0]
+        ]);
+    }
+
     public function getRouteKeyName(){
         return 'name';
     }

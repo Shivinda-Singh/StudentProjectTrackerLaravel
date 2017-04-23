@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
+
 <div class="container">
     <div class="col-md-8 panel panel-default">
         <div class="panel-body">
@@ -40,6 +41,12 @@
     <div class="panel panel-default">
         <div class="panel-body">
             <form method="POST" action="/admin/update/{{$project->id}}">
+
+
+    <div class="col-sm-12">
+        @include('projects.details');
+        <form method="POST" action="/admin/update/{{$project->id}}">
+
             {{ csrf_field() }}
 
             <div class="panel-text">
@@ -53,15 +60,27 @@
                 <textarea class="form-control" id="rejection_reasons" name="rejection_reasons" rows="3"></textarea>
             </div>
 
+
             <div class="panel-text">
                  <button type="submit" class="btn btn-primary" style="width:94px;">Submit</button><br>
+
+            <div class="form-group text-right">
+                 <button type="submit" class="btn btn-primary">Submit</button><br>
+
                 <small id="submitHelp" class="form-text text-muted">Use the toggle above to approve or reject this project submission</small>
             </div>
 
             <!--<input id="project_id" name="project_id" value="{{$project->id}}"type="text" style="display: none;">-->
         </form>
+
         </div>
     </div>
+
+    </div>
+
+
+@endsection
+>>>>>>> refs/remotes/origin/master
 
     </div>
     @include('layouts.sidebar')

@@ -29,13 +29,16 @@ Route::get('/projects/{project}', 'ProjectsController@show');
 Route::post('/projects/{project}','CommentsController@store')->middleware('auth');;
 Route::get('/projects/tags/{tag}', 'TagsController@index');
 Route::get('/projects/students/{student}','ProjectsController@showStudent');
-
+Route::get('/project/download/{file}', 'ProjectsController@getDownload')->name('project.download');
 // ->middleware('auth')
+
+
 
 
 Auth::routes();
 
 Route::get('/home', 'StudentsController@index');
+Route::post('/home' ,'StudentsController@uploadAvatar');
 
 
 

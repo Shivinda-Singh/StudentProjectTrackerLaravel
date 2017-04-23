@@ -10,6 +10,9 @@ use App\Project_User;
 use App\Tag;
 use Auth;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\UploadRequest;
+use App\ProjectFile;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectsController extends Controller
 {
@@ -19,7 +22,8 @@ class ProjectsController extends Controller
         
 
         $projects = Project::latest()
-        ->filters(request(['month','year']))
+        // ->filters(request(['month','year']))
+        ->filters(request(['year']))
         ->where('approved',1)
         ->get();
 
@@ -38,32 +42,49 @@ class ProjectsController extends Controller
         return redirect('/projects');
     }
 
-    public function store(){
+    public function store(UploadRequest $request){
         //validate forms
-        $this->validate(request(),[
-            'name' => 'required',
-            'description' => 'required',
-            'course_code' => 'required',
-            'year_completed' => 'required',
-            'github' => 'required'
-        ]);
+        // $this->validate(request(),[
+        //     'name' => 'required',
+        //     'description' => 'required',
+        //     'course_code' => 'required',
+        //     'year_completed' => 'required',
+        //     'github' => 'required',
+
+        // ]);
 
         // auth()->user()->upload(
         //     new Project(request(['name','description','collaborators','course_code','year_completed','github']))
         // );
 
-        $collaborators = request('collaborators');
-
-        $tags = request('tags');
-
+        $collaborators = $request->collaborators;
+        // return $collaborators;
+        $tags = $request->tags;
+        // return $tags;
         $project = Project::create([
-            'name' => request('name'),
-            'description' => request('description'),
-            'course_code' => request('course_code'),
-            'year_completed' => request('year_completed'),
-            'github' => request('github'),
+            'name' => $request->name,
+            'description' => $request->description,
+            'course_code' => $request->course_code,
+            'year_completed' => $request->year_completed,
+            'github' => $request->github,
             'user_id' => auth()->id()
         ]);
+
+        $files = $request->file('files');
+        if(!empty($files)){
+            foreach ($files as $fileno => $file) {
+                // $filename = $file->store('public');
+                $filename = $file->getClientOriginalName();
+                $path = Storage::disk('uploads')->putFileAs('files/'.auth()->user()->id,$file,$filename );
+                ProjectFile::create([
+                    'project_id' => $project->id,
+                    'path' => $path,
+                    'name' => $filename
+                ]);
+            
+            }
+        }
+        
 
         //add attach tags to project
 
@@ -75,28 +96,25 @@ class ProjectsController extends Controller
         //     'project_id' => $project->id
         // ]);
 
-        
         if(count($tags)){
             foreach($tags as $tag){
                 $project->addTag($tag);
             }
         }
 
+        $project->addCollab(auth()->id());
+
         if(count($collaborators)){
             foreach($collaborators as $collaborator){
-                $project->addCollab($collaborator);
+                if($collaborator!=auth()->id()){
+                    $project->addCollab($collaborator);
+                }
+                
             }
         }
 
-        
-
-        
-        
 
 
-        
-
-        
         session()->flash('message', 'Your post has been published');
 
         return redirect('/home');
@@ -106,4 +124,5 @@ class ProjectsController extends Controller
 
         return view('projects.student', compact('student'));
     }
+
 }
