@@ -26,8 +26,7 @@
                         @endforeach
                        
                     @else
-                    
-                        <h1>no pending projects</h1>
+                        <h2 class="text-center" style="margin-bottom:22px;">No Pending Projects</h2>
                     @endif
                 </div>
 
