@@ -32,4 +32,4 @@
 * php artisan serve
 
 # Notes
-* You need to manaually insert an admin user into db
+* You need to manaually insert an admin user into db. Rememebr to encrypt password
