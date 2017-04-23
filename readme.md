@@ -5,8 +5,8 @@
 
 # Capabilities
 1. Two types of users: Administrators and Students
-2. Students can sign up, however information published will only be visible after administrator approval.
-3. Students can provide the following details about the project:
+2. Users can sign up, however information published will only be visible after administrator approval.
+3. Users can provide the following details about the project:
   a. Project Name
   b. Course code
   c. Course name
@@ -15,7 +15,9 @@
   f. Upload (up to 100MB)
   g. Group Members (With publicly available profile images)
   h. Tags
-4. Users can view website without signing in. However, only other approved students can access the uploading project files.
+4. Registered Users Can leave comment
+5. Registered Users can view their dashboard for published, pending and rejected projects. 
+6. Users can view website without signing in. However, only other approved students can access the uploading project files.
 
 # Pre-Requisites
 1. Composer
