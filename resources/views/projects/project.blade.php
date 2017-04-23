@@ -13,5 +13,6 @@
 
         {{strlen($project->description)>50 ? "..." : ""}}
     </p>
+    </div>
 </div>
 

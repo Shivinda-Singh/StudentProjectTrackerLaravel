@@ -79,11 +79,11 @@
     </div>
 
 
-@endsection
->>>>>>> refs/remotes/origin/master
+
 
     </div>
+
     @include('layouts.sidebar')
-</div>
+
   
 @endsection
