@@ -1,18 +1,14 @@
-
 <div class="panel panel-default">
-    <h2 class="panel-heading" style="margin-top: 11px;"><a href="/projects/{{$project->id}}">{{$project->name}}</a><span class="badge badge-pill badge-default" style="float:right;">Published on {{$project->created_at->toFormattedDateString()}}</span></h2>
-    <p> </p>
-    <p class="panel-body">
-        {{substr($project->description,0,50)}}
+    <div class="panel-heading">
+        <h2><a href="/projects/{{$project->id}}">{{$project->name}}</a></h2>
+        <p class="" style="color:grey;">Published on {{$project->created_at->toFormattedDateString()}}</p>
+    </div>
+    
 
-<div class="">
-    <h2 class=""><a href="/projects/{{$project->id}}">{{$project->name}}</a></h2>
-    <p class="blog-post-meta">Published on {{$project->created_at->toFormattedDateString()}} </p>
-    <p>
+    <p class="panel-body">
+    
         Description: {{substr($project->description,0,50)}}
 
         {{strlen($project->description)>50 ? "..." : ""}}
     </p>
     </div>
-</div>
-
