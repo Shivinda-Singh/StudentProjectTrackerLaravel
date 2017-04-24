@@ -46,7 +46,7 @@
                 </div>
                 <div class="form-group">
                     <label for="github">Github</label>
-                    <input type="url" class="form-control" id="github" name="github" placeholder="link">
+                    <input required type="url" class="form-control" id="github" name="github" placeholder="link">
                 </div>
                 <div class="form-group">
                     <label for="files">Upload Files( Max 100MB )</label>

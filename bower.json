@@ -14,8 +14,8 @@
     "test",
     "tests"
   ],
-  "dependencies": {},
-  "devDependencies": {
+  "dependencies": {
+    "select2": "^4.0.3",
     "bootstrap-toggle": "^2.2.2"
   }
 }

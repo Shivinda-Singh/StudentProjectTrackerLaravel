@@ -4,7 +4,7 @@
             <p class="blog-post-meta">{{$project->created_at}} by <a href="#">{{$user->name }}</a></p>
         </div>
         <div class="panel-body">
-            <div class="row">
+            <div class="">
                 <dl class="dl-horizontal">
 
                     <dt>Description</dt>
@@ -22,14 +22,14 @@
                                 <ul>
                                     @foreach ($project->users as $student)
                                     <li style="list-style-type:none;">
-                                        <div class="col-md-2 col-sm-4 row">
+                                        <div class="pull-left">
 
-                                            <div class="pull-left">
+                                            <div style="margin-right:5px;">
                                                 <a href="/projects/students/{{$student->name}}"><img src="/uploads/{{$student->avatar}}" class="img-thumbnail" style="height:50px;width:50px;"></a>
                                             </div>
 
-                                            <div class="label label-info">
-                                                <a href="/projects/students/{{$student->name}}" style="color:#ffffff;">{{$student->name}}</a>
+                                            <div>
+                                                <a class="label label-info" href="/projects/students/{{$student->name}}" style="color:#ffffff;">{{$student->name}}</a>
                                             </div>
                                         </div>
                                     </li>

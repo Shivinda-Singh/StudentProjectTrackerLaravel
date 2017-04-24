@@ -43,24 +43,9 @@ class ProjectsController extends Controller
     }
 
     public function store(UploadRequest $request){
-        //validate forms
-        // $this->validate(request(),[
-        //     'name' => 'required',
-        //     'description' => 'required',
-        //     'course_code' => 'required',
-        //     'year_completed' => 'required',
-        //     'github' => 'required',
-
-        // ]);
-
-        // auth()->user()->upload(
-        //     new Project(request(['name','description','collaborators','course_code','year_completed','github']))
-        // );
 
         $collaborators = $request->collaborators;
-        // return $collaborators;
         $tags = $request->tags;
-        // return $tags;
         $project = Project::create([
             'name' => $request->name,
             'description' => $request->description,
@@ -85,20 +70,13 @@ class ProjectsController extends Controller
             }
         }
         
-
-        //add attach tags to project
-
-        //attach users to project
-
-        // return $project->id;
-        // Project_User::create([
-        //     'user_id' => $project->user_id,
-        //     'project_id' => $project->id
-        // ]);
-
         if(count($tags)){
             foreach($tags as $tag){
+                if($tag[0]=='#'){
+                    $tag=substr($tag,1);
+                }
                 $project->addTag($tag);
+                
             }
         }
 
