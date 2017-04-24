@@ -22,14 +22,24 @@
 # Pre-Requisites
 1. Composer
 2. NodeJs
+3. Bower
+4. LAMP stack
 
 # Installation
 * Composer Install
 * Npm Install
 * Bower install
+* Set enviroment
+    * duplicate .env.example and rename to .env
+    * run "php artisan key:generate
+    * copy generated key to .env file e.g APP_KEY = {generated_key}}
+    * start your mysql server
+    * create a database e.g studentprojecttracker
+    * set database credentails in .env file from DB_DATABASE = studentprojecttracker, DB_USERNAME = root, DB_PASSWORD=
+    * save .env
 * php artisan migrate 
 * php artisan db:seed
 * php artisan serve
 
 # Notes
-* You need to manaually insert an admin user into db. Rememebr to encrypt password using bcrypt which can be found here https://bcrypt-generator.com/
+* Go to /admin to access admin login
