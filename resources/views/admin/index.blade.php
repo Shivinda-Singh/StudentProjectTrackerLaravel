@@ -18,7 +18,9 @@
                                             <div>
                                                 <h2><a href="/admin/review/{{$project->id}}">{{$project->name}}</a></h2>
                                                 <p>Published on {{$project->created_at->toFormattedDateString()}}</p>
-                                                <p>{{$project->description}}</p>
+                                                <p>Description: {{substr($project->description,0,50)}}
+
+                                                    {{strlen($project->description)>50 ? "..." : ""}}</p>
                                             </div>
                                         </blockquote>
                                     </div>
