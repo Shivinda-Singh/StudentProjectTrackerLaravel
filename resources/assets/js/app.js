@@ -47,7 +47,6 @@ $('#changeAvatar').bootstrapToggle({
 });
 
 $(".collaborators").select2({
-
 });
 
 $(".tags").select2({
