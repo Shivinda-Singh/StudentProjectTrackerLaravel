@@ -12,5 +12,5 @@ Homestead.json
 Homestead.yaml
 .env
 
-!/resources/uploads/avatars/default-avatar.png
+!/public/uploads/avatars/default-avatar.png
 
