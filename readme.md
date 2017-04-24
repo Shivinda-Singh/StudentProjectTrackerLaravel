@@ -39,6 +39,7 @@
     * save .env
 * php artisan migrate (if you have problem migrating, run "composer dump-autoload" and then try again)
 * php artisan db:seed
+* npm run dev
 * php artisan serve
 
 # Notes
