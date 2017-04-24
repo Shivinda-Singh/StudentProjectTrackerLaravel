@@ -7,9 +7,9 @@
 
                 <ul class="nav nav-tabs nav-justified">
                     <li class="active"><a data-toggle="tab" href="#home">Dashboard</a></li>
-                    <li><a data-toggle="tab" href="#menu1">Published</a></li>
-                    <li><a data-toggle="tab" href="#menu2">Pending</a></li>
-                    <li><a data-toggle="tab" href="#menu3">Rejected</a></li>
+                    <li><a data-toggle="tab" href="#menu1">Published &nbsp <span class="badge badge-success">{{count($projects)}}</span></a></li>
+                    <li><a data-toggle="tab" href="#menu2">Pending &nbsp<span class="badge badge-warning">{{count($pending_projects)}}</span></a></li>
+                    <li><a data-toggle="tab" href="#menu3">Rejected &nbsp<span class="badge badge-error">{{count($rejected_projects)}}</span></a></li>
                 </ul>
 
                 <ul class="nav nav-pills nav-justified">
