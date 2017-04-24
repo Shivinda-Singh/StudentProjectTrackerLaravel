@@ -1,8 +1,7 @@
 /node_modules
 /resources/assets/bower
 /resources/assets/vendor
-!/public/uploads
-/public/uploads
+/public/uploads/*
 !/public/uploads/avatars/
 /public/uploads/avatars/*
 !public/uploads/avatars/default-avatar.png
