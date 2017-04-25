@@ -38,8 +38,7 @@
     * set database credentails in .env file e.g DB_DATABASE = studentprojecttracker, DB_USERNAME = root, DB_PASSWORD=
     * save .env
 * php artisan migrate (if you have problem migrating, run "composer dump-autoload" and then try again)
-* php artisan db:seed
-* npm run dev
+* php artisan db:seed( adds a admin to database)
 * php artisan serve
 
 # Notes
