@@ -20,10 +20,10 @@
 6. Users can view website without signing in. However, only other approved students can access the uploading project files.
 
 # Pre-Requisites
-1. Composer
-2. NodeJs
-3. Bower
-4. LAMP stack
+1. <a href="https://getcomposer.org/">Composer</a>
+2. <a href="https://nodejs.org/en/">NodeJs </a>
+3. <a href="https://bower.io/">Bower</a>
+4. LAMP stack/ <a href="https://www.apachefriends.org/index.html">XAMP(Windows)</a>
 
 # Installation
 * Composer Install
